@@ -550,6 +550,10 @@ GameObject:
   - component: {fileID: 1159970162}
   - component: {fileID: 1159970161}
   - component: {fileID: 1159970160}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 1159970163}
+>>>>>>> Stashed changes
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -571,8 +575,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text_delay: 0.1
   speaker_name: 
+<<<<<<< Updated upstream
   DEBUG_TEXT: '[0.02]This is a message for debugging![0.5]...[1.0][0.02]I hope this
     works.'
+=======
+  DEBUG_TEXT: '[0.095]This is a message for debugging![0.5]...[1.0][0.095]I hope
+    this works.'
+  text_audio_clips:
+  - {fileID: 8300000, guid: 197783cf4f6e961489a20eb34f72a293, type: 3}
+  - {fileID: 8300000, guid: cc3b341229bde3f44baea5661f7dd3db, type: 3}
+  - {fileID: 8300000, guid: cad2209271abb7f428caa86fa375d3c2, type: 3}
+  - {fileID: 8300000, guid: 9c121d1f5c29da14ca9398346ad10466, type: 3}
+  - {fileID: 8300000, guid: cbcafef236be6a745b41ceba8edfbfa7, type: 3}
+  - {fileID: 8300000, guid: 9d193d29fc0ee7d40a696db9a6714203, type: 3}
+  - {fileID: 8300000, guid: 8ed472b6092640649b43f5b9e0498474, type: 3}
+  - {fileID: 8300000, guid: 3a1de7cb99c2c5c45bb6081a86ecc8c4, type: 3}
+  - {fileID: 8300000, guid: f594cb64079387e4593249ac693fdddf, type: 3}
+  - {fileID: 8300000, guid: 0881baee7267dba40b8b740173d27e51, type: 3}
+  - {fileID: 8300000, guid: a68ead273ffe1ec478537bce94ffd716, type: 3}
+  - {fileID: 8300000, guid: cb1c550aec6886743a002f1992b4e0e6, type: 3}
+>>>>>>> Stashed changes
   message_que: []
 --- !u!114 &1159970161
 MonoBehaviour:
@@ -605,6 +627,105 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!82 &1159970163
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159970159}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+>>>>>>> Stashed changes
 --- !u!1 &1291882648
 GameObject:
   m_ObjectHideFlags: 0
