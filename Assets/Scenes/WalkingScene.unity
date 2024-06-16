@@ -551,6 +551,10 @@ GameObject:
   - component: {fileID: 1159970161}
   - component: {fileID: 1159970160}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 1159970163}
+>>>>>>> Stashed changes
 =======
   - component: {fileID: 1159970163}
 >>>>>>> Stashed changes
@@ -576,11 +580,16 @@ MonoBehaviour:
   text_delay: 0.1
   speaker_name: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   DEBUG_TEXT: '[0.02]This is a message for debugging![0.5]...[1.0][0.02]I hope this
     works.'
 =======
   DEBUG_TEXT: '[0.095]This is a message for debugging![0.5]...[1.0][0.095]I hope
     this works.'
+=======
+  DEBUG_TEXT: '[0.06]This is a message for debugging![0.5]...[1.0][0.06]I hope this
+    works.'
+>>>>>>> Stashed changes
   text_audio_clips:
   - {fileID: 8300000, guid: 197783cf4f6e961489a20eb34f72a293, type: 3}
   - {fileID: 8300000, guid: cc3b341229bde3f44baea5661f7dd3db, type: 3}
@@ -594,6 +603,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0881baee7267dba40b8b740173d27e51, type: 3}
   - {fileID: 8300000, guid: a68ead273ffe1ec478537bce94ffd716, type: 3}
   - {fileID: 8300000, guid: cb1c550aec6886743a002f1992b4e0e6, type: 3}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   message_que: []
 --- !u!114 &1159970161
@@ -628,7 +640,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!82 &1159970163
 AudioSource:
   m_ObjectHideFlags: 0
@@ -639,8 +654,13 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
+<<<<<<< Updated upstream
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
+=======
+  m_audioClip: {fileID: 8300000, guid: cc3b341229bde3f44baea5661f7dd3db, type: 3}
+  m_PlayOnAwake: 0
+>>>>>>> Stashed changes
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -715,7 +735,11 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
+<<<<<<< Updated upstream
       value: 1
+=======
+      value: 1.1
+>>>>>>> Stashed changes
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -725,6 +749,9 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1291882648
 GameObject:
