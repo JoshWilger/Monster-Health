@@ -19,26 +19,10 @@ public class TextManager : MonoBehaviour
 {
     public float text_delay = 0.1f;
     public String speaker_name;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    public String DEBUG_TEXT = "[0.1]This is a message for debugging!";
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     public String DEBUG_TEXT = "[0.3]This is a message for debugging!";
     public List<AudioClip> text_audio_clips;
     private AudioSource audioSource;
     private int last_played_index = -1;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     private Label txt;
     private VisualElement txt_container;
     private Label name_txt;
@@ -59,16 +43,8 @@ public class TextManager : MonoBehaviour
     private List<string> message_que = new List<string>();
     [SerializeField]
     private List<(DecisionList, int)> decision_que = new List<(DecisionList, int)>();
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
     [SerializeField]
     private List<(string, Color, int)> speaker_que = new List<(string, Color, int)>();
->>>>>>> Stashed changes
-=======
-    [SerializeField]
-    private List<(string, Color, int)> speaker_que = new List<(string, Color, int)>();
->>>>>>> Stashed changes
 
     private void OnEnable()
     {
@@ -80,18 +56,7 @@ public class TextManager : MonoBehaviour
         decision_button_container = root.Q<VisualElement>("DecisionContainer");
         decision_button_1 = root.Q<Button>("Decision1Button");
         decision_button_2 = root.Q<Button>("Decision2Button");
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
         audioSource = GetComponent<AudioSource>();
->>>>>>> Stashed changes
-=======
-        audioSource = GetComponent<AudioSource>();
->>>>>>> Stashed changes
-=======
-        audioSource = GetComponent<AudioSource>();
->>>>>>> Stashed changes
 
         GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
         foreach (GameObject obj in rootObjects)
@@ -111,14 +76,6 @@ public class TextManager : MonoBehaviour
             //skip_txt = true;
         }
     }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    public void SetSpeaker(String speaker)
-    {
-        speaker_name = speaker;
-=======
-=======
->>>>>>> Stashed changes
     public void AddSpeakerChange(String speaker, Color col)
     {
         //speaker_name = speaker;
@@ -143,84 +100,32 @@ public class TextManager : MonoBehaviour
         txt_container.style.borderRightColor = col;
         txt_container.style.borderTopColor = col;
         nametxt_container.style.backgroundColor = col;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     }
 
     [ContextMenu("DebugMessageQue")]
     private void DebugMessageQue()
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        AddMessage(DEBUG_TEXT);
-<<<<<<< Updated upstream
-        AddMessage("[0.03]This is an internal message that is second in the list.");
-        AddMessage("[0.01]cool");
-=======
-        AddMessage("[0.095]This is an internal message that is second in the list.");
-        AddMessage("[0.095]cool");
->>>>>>> Stashed changes
-=======
-=======
->>>>>>> Stashed changes
         AddSpeakerChange("Speaker1", new Color(0,1,0));
         AddMessage(DEBUG_TEXT);
         AddMessage("[0.06]This is an internal message that is second in the list.");
         AddMessage("[0.06]cool");
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
         DecisionList new_dl = new DecisionList();
         new_dl.text_1 = "Option1";
         new_dl.text_2 = "Option2";
         new_dl.decision1 = DebugOption1;
         new_dl.decision2 = DebugOption1;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        AddMessageWithDecision("[0.1]Choose an option", new_dl);
-=======
-        AddMessageWithDecision("[0.092]Choose an option", new_dl);
->>>>>>> Stashed changes
-=======
         AddSpeakerChange("Speaker2", new Color(1, 0, 0));
         AddMessageWithDecision("[0.06]Choose an option", new_dl);
->>>>>>> Stashed changes
-=======
-        AddSpeakerChange("Speaker2", new Color(1, 0, 0));
-        AddMessageWithDecision("[0.06]Choose an option", new_dl);
->>>>>>> Stashed changes
 
         DecisionList new_dl_2 = new DecisionList();
         new_dl_2.text_1 = "Option3";
         new_dl_2.text_2 = "Option4";
         new_dl_2.decision1 = DebugOption1_2;
         new_dl_2.decision2 = DebugOption1_2;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        AddMessageWithDecision("[0.1]Choose another option", new_dl_2);
-
-        AddMessage("[0.01]thanks!");
-=======
-        AddMessageWithDecision("[0.095]Choose another option", new_dl_2);
-
-        AddMessage("[0.095]thanks!");
->>>>>>> Stashed changes
-=======
         AddMessageWithDecision("[0.06]Choose another option", new_dl_2);
 
         AddMessage("[0.06]thanks!");
->>>>>>> Stashed changes
-=======
-        AddMessageWithDecision("[0.06]Choose another option", new_dl_2);
-
-        AddMessage("[0.06]thanks!");
->>>>>>> Stashed changes
 
         PlayMessageQue();
     }
@@ -248,19 +153,7 @@ public class TextManager : MonoBehaviour
     {
         nametxt_container.visible = true;
         txt_container.visible = true;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        name_txt.text = speaker_name;
-<<<<<<< Updated upstream
-        print("FIRST");
-=======
->>>>>>> Stashed changes
-=======
         //name_txt.text = speaker_name;
->>>>>>> Stashed changes
-=======
-        //name_txt.text = speaker_name;
->>>>>>> Stashed changes
         StartCoroutine("AnimateText");
     }
 
@@ -269,55 +162,23 @@ public class TextManager : MonoBehaviour
         nametxt_container.visible = false;
         txt_container.visible = false;
         name_txt.text = "";
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
         ChangeOutlineColor(new Color(0, 1, 0));
->>>>>>> Stashed changes
-=======
-        ChangeOutlineColor(new Color(0, 1, 0));
->>>>>>> Stashed changes
         message_que.Clear();
     }
 
     IEnumerator AnimateText()
     {
         float current_text_delay = text_delay;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        print("BBBBBBBB");
-        if (txt != null)
-        {
-            print("EEEEEE");
-            for (int k = 0; k < message_que.Count; k++)
-            {
-                print("AAAAAAAA");
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         if (txt != null)
         {
             for (int k = 0; k < message_que.Count; k++)
             {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
-=======
->>>>>>> Stashed changes
                 if (speaker_que.Any(t => t.Item3 == k))
                 {
                     (string, Color, int) speaker_info = speaker_que.Find(t => t.Item3 == k);
                     ChangeSpeaker(speaker_info.Item1, speaker_info.Item2);
                 }
 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                 current_txt_end = false;
                 var text = message_que[k];
                 //print("ALIVE4");
@@ -363,18 +224,7 @@ public class TextManager : MonoBehaviour
                         delay_times.RemoveAt(0);
                     }
                     yield return new WaitForSeconds(current_text_delay);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
                     PlayRandomClip();
->>>>>>> Stashed changes
-=======
-                    PlayRandomClip();
->>>>>>> Stashed changes
-=======
-                    PlayRandomClip();
->>>>>>> Stashed changes
                     txt.text = text.Substring(0, i);
                 }
                 skip_txt = false;
@@ -410,19 +260,7 @@ public class TextManager : MonoBehaviour
         {
             while (question_hold)
             {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                if (Input.GetMouseButton(0))
-=======
                 if (Input.GetMouseButtonDown(0))
->>>>>>> Stashed changes
-=======
-                if (Input.GetMouseButtonDown(0))
->>>>>>> Stashed changes
-=======
-                if (Input.GetMouseButtonDown(0))
->>>>>>> Stashed changes
                 {
                     done = true;
                 }
@@ -433,19 +271,7 @@ public class TextManager : MonoBehaviour
         {
             while (!done)
             {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                if (Input.GetMouseButton(0))
-=======
                 if (Input.GetMouseButtonDown(0))
->>>>>>> Stashed changes
-=======
-                if (Input.GetMouseButtonDown(0))
->>>>>>> Stashed changes
-=======
-                if (Input.GetMouseButtonDown(0))
->>>>>>> Stashed changes
                 {
                     done = true;
                 }
@@ -471,56 +297,18 @@ public class TextManager : MonoBehaviour
         question_hold = false;
     }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-    public void PlayRandomClip()
-    {
-        int newIndex;
-=======
     public void PlayRandomClip()
     {
         /*int newIndex;
->>>>>>> Stashed changes
-=======
-    public void PlayRandomClip()
-    {
-        /*int newIndex;
->>>>>>> Stashed changes
         do
         {
             newIndex = UnityEngine.Random.Range(0, text_audio_clips.Count);
         } while (newIndex == last_played_index);
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        last_played_index = newIndex;
-
-        AudioClip clip = (AudioClip)text_audio_clips[newIndex];
-        audioSource.clip = clip;
-        audioSource.Play();
-    }
-
->>>>>>> Stashed changes
-    public void StopMessage()
-    {
-        nametxt_container.visible = false;
-        txt_container.visible = false;
-        name_txt.text = "";
-        txt.text = "";
-    }
-=======
-=======
->>>>>>> Stashed changes
         last_played_index = newIndex;*/
 
         //AudioClip clip = (AudioClip)text_audio_clips[0];
         //audioSource.clip = clip;
         audioSource.Play();
     }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
