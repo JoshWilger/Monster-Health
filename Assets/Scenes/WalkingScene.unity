@@ -715,13 +715,14 @@ GameObject:
   - component: {fileID: 262440348}
   - component: {fileID: 262440352}
   - component: {fileID: 262440353}
+  - component: {fileID: 262440354}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &262440348
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -834,7 +835,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &262440353
 MonoBehaviour:
@@ -848,6 +849,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75af8d554190c80498feec0fe00e86c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementMultiplier: 6
+--- !u!114 &262440354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262440347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e27e5947fe0ae7408bcd09c7196503f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 3
 --- !u!1 &271216479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,18 +1118,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 519420032}
+  volumeTrigger: {fileID: 0}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 2
+  antialiasingMode: 0
   temporalAntialiasing:
-    jitterSpread: 1
-    sharpness: 0
-    stationaryBlending: 0.99
-    motionBlending: 0.99
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
   subpixelMorphologicalAntialiasing:
     quality: 2
   fastApproximateAntialiasing:
@@ -1144,7 +1159,7 @@ MonoBehaviour:
       motionGridSize: 64
       colorBlindnessType: 0
       colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_Resources: {fileID: 0}
   m_ShowToolkit: 0
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
@@ -1180,8 +1195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: cdc0f562599485f4ca1b4afa2b06afba, type: 2}
-  isGlobal: 1
+  sharedProfile: {fileID: 0}
+  isGlobal: 0
   blendDistance: 0
   weight: 1
   priority: 0
@@ -1633,7 +1648,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1018177299}
-  - component: {fileID: 1018177300}
   m_Layer: 0
   m_Name: StoryManager
   m_TagString: Untagged
@@ -1656,18 +1670,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1018177300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018177298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c9d95f1ae12294a9cf230dd61abde8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1101102028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,7 +1816,7 @@ GameObject:
   - component: {fileID: 1130172131}
   - component: {fileID: 1130172130}
   - component: {fileID: 1130172129}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Edge (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
