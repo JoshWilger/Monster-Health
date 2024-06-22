@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemCollection : MonoBehaviour
 {
     public TextMeshProUGUI itemsCollectedText;
-    private int totalItemsCollected;
+    protected int totalItemsCollected;
 
     private void Start()
     {
@@ -20,13 +20,18 @@ public class ItemCollection : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Collectable"))
         {
-            totalItemsCollected++;
-            if (itemsCollectedText != null)
-            {
-                itemsCollectedText.text = totalItemsCollected.ToString();
-            }
-            Destroy(other.gameObject);
-            Debug.Log($"{other.gameObject.name} collected: {totalItemsCollected}");
-        }        
+            UpdateCollection(other);
+        }
+    }
+
+    protected void UpdateCollection(Collider other)
+    {
+        totalItemsCollected++;
+        if (itemsCollectedText != null)
+        {
+            itemsCollectedText.text = totalItemsCollected.ToString();
+        }
+        Destroy(other.gameObject);
+        Debug.Log($"{other.gameObject.name} collected: {totalItemsCollected}");
     }
 }
