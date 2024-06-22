@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ItemCollection : MonoBehaviour
 {
+    public TextMeshProUGUI itemsCollectedText;
     private int totalItemsCollected;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        if (itemsCollectedText != null)
+        {
+            itemsCollectedText.text = totalItemsCollected.ToString();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.layer == LayerMask.NameToLayer("Collectable"))
+        {
+            totalItemsCollected++;
+            if (itemsCollectedText != null)
+            {
+                itemsCollectedText.text = totalItemsCollected.ToString();
+            }
+            Destroy(other.gameObject);
+            Debug.Log($"{other.gameObject.name} collected: {totalItemsCollected}");
+        }        
     }
 }
