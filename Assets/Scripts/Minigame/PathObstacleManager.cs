@@ -9,6 +9,10 @@ public class PathObstacleManager : MonoBehaviour
     public GameObject bushes;
     public GameObject snails;
 
+    public Vector2 x_range = new Vector2(-5.65f, 5.65f);
+    public float spawn_time = 1f;
+    public float speed = 10f;
+
     private List<GameObject> obstacle_list = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -24,7 +28,7 @@ public class PathObstacleManager : MonoBehaviour
     {
         foreach (Transform active_obstacle in active_objects.transform)
         {
-            active_obstacle.transform.position += new Vector3(0, 0, -10f) * Time.deltaTime;
+            active_obstacle.transform.position += new Vector3(0, 0, -speed) * Time.deltaTime;
         }
     }
 
@@ -35,7 +39,7 @@ public class PathObstacleManager : MonoBehaviour
             int random = Random.Range(0, obstacle_list.Count);
             GameObject obj = obstacle_list[random];
             PushToActive(obj.transform.GetChild(0).gameObject);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(spawn_time);
         }
     }
 
@@ -44,7 +48,7 @@ public class PathObstacleManager : MonoBehaviour
         obstacle.GetComponent<ObstacleScript>().Begin();
         StartCoroutine(ReturnObstacles(obstacle, obstacle.transform.parent.gameObject));
         obstacle.transform.parent = active_objects.transform;
-        float random_x = Random.Range(-5.65f, 5.65f);
+        float random_x = Random.Range(x_range.x, x_range.y);
         int random_flip = Random.Range(0, 2);
         if (random_flip == 0)
         {

@@ -5,15 +5,23 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float speed = 1.0f;
+    public float walking_speed = 1.0f;
+    float speed = 1.0f;
 
     public float jump_force;
     public float jump_cooldown;
     public float air_multiplier;
     bool ready_jump;
 
+    [Header("Collisions")]
+    public GameObject collision_box;
+    public Vector3 regular_size;
+    public Vector3 crouch_size;
+    public Vector3 crouch_position;
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode crouchKey = KeyCode.LeftControl;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -27,11 +35,18 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
+    bool jump_debounce = false;
+    bool crouch_debounce = false;
+
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        speed = walking_speed;
         ready_jump = true;
         rb = GetComponent<Rigidbody>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
         rb.freezeRotation = true;
     }
 
@@ -44,10 +59,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
         {
+            if (jump_debounce)
+            {
+                //print("AAA");
+                animator.SetTrigger("Grounded");
+                Walk();
+                jump_debounce = false;
+            }
             rb.drag = drag;
-        }else
+        }
+        else
         {
             rb.drag = 0;
+            jump_debounce = true;
         }
     }
 
@@ -67,6 +91,17 @@ public class PlayerMovement : MonoBehaviour
             ready_jump = false;
             Jump();
             Invoke(nameof(ResetJump), jump_cooldown);
+        }
+
+        if (Input.GetKeyDown(crouchKey))
+        {
+            Crouch();
+        }
+
+        if (Input.GetKeyUp(crouchKey))
+        {
+            crouch_debounce = false;
+            Walk();
         }
     }
 
@@ -88,18 +123,50 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if(flatVel.magnitude > speed)
+        if (flatVel.magnitude > speed)
         {
             Vector3 limitedVel = flatVel.normalized * speed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
-    
+
     private void Jump()
     {
+        animator.SetTrigger("Jump");
+        //animator.ResetTrigger("Crouch");
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        print("JUMP");
         rb.AddForce(Vector3.up * jump_force, ForceMode.Impulse);
+        //crouch_debounce = false;
+        //jump_debounce = true;
+    }
+
+    private void Crouch()
+    {
+        if (!crouch_debounce)
+        {
+            animator.SetTrigger("Crouch");
+            //animator.ResetTrigger("Jump");
+            speed = 0.5f;
+            crouch_debounce = true;
+            print("CROUCH");
+            collision_box.transform.localPosition = crouch_position;
+            collision_box.transform.localScale = crouch_size;
+        }
+    }
+
+    private void Walk()
+    {
+        //crouch_debounce = false;
+       // animator.ResetTrigger("Walk");
+        animator.SetTrigger("Walk");
+        collision_box.transform.localPosition = Vector3.zero;
+        collision_box.transform.localScale = regular_size;
+        //animator.ResetTrigger("Jump");
+        //animator.ResetTrigger("Crouch");
+        //animator.ResetTrigger("Grounded");
+        animator.Rebind();
+        animator.Update(0f);
+        speed = walking_speed;
     }
 
     private void ResetJump()
