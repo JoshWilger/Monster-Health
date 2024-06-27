@@ -5,10 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Text.RegularExpressions;
 using System.Linq;
-using UnityEditor.Callbacks;
-using Unity.VisualScripting;
 using System;
-using static Unity.VisualScripting.Member;
 using TMPro;
 using UnityEditor;
 using UnityEngine.SceneManagement;
@@ -140,6 +137,7 @@ public class TextManager : MonoBehaviour
     }
     public void AddMessage(string message)
     {
+        AudioManager.instance.PlayDialoguegEvent();
         message_que.Add(message);
     }
 

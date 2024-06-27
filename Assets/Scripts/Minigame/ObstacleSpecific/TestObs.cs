@@ -18,6 +18,11 @@ public class TestObs : ObstacleScript
 
     public override void Begin()
     {
-        print("Printed!");
+        
+    }
+
+    public override void End()
+    {
+        
     }
 }
