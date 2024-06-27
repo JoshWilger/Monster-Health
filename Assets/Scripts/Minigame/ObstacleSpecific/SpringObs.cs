@@ -21,7 +21,7 @@ public class SpringObs : ObstacleScript
             //transform.RotateAround(pivot.transform.position, Vector3.forward, Mathf.Sin(GetCounter()));
             float x_ax = (Mathf.Rad2Deg * ((Mathf.Sin(GetCounter())) / 5f)) + 90;
             transform.eulerAngles = new Vector3(x_ax, -90f, -90f);
-            print(Mathf.Sin(GetCounter()));
+            //print(Mathf.Sin(GetCounter()));
         }
     }
 
