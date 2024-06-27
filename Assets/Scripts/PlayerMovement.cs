@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //print("AAA");
                 animator.SetTrigger("Grounded");
+                AudioManager.instance.PlayLandingEvent();
                 Walk();
                 jump_debounce = false;
             }
@@ -133,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         animator.SetTrigger("Jump");
+        AudioManager.instance.PlayJumpingEvent();
         //animator.ResetTrigger("Crouch");
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(Vector3.up * jump_force, ForceMode.Impulse);

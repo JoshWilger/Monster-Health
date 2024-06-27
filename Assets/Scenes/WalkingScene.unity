@@ -2915,6 +2915,163 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417776560}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &474189531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 474189533}
+  - component: {fileID: 474189532}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &474189532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474189531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c48e54424d12a4e9cc77e6072a83f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainmenuMusic: 0
+  walkingMusic: 1
+  lifeeventMusic: 0
+  endoflifeMusic: 0
+  minigameMusic: 0
+  teacherMusic: 0
+  testTransform: {fileID: 0}
+  <CoinEvent>k__BackingField:
+    Guid:
+      Data1: -241022264
+      Data2: 1151020809
+      Data3: -548631640
+      Data4: -727647147
+    Path: event:/Coins
+  <HoopEvent>k__BackingField:
+    Guid:
+      Data1: 1760033761
+      Data2: 1247075009
+      Data3: 1354095252
+      Data4: 754861655
+    Path: event:/Hoop
+  <JumpingEvent>k__BackingField:
+    Guid:
+      Data1: 1905216422
+      Data2: 1106739274
+      Data3: -880407625
+      Data4: -1449103901
+    Path: event:/Jumping
+  <LandingEvent>k__BackingField:
+    Guid:
+      Data1: 556860157
+      Data2: 1144132283
+      Data3: 685560751
+      Data4: -685817607
+    Path: event:/Landing
+  <LightsOnEvent>k__BackingField:
+    Guid:
+      Data1: 1455469744
+      Data2: 1237798865
+      Data3: -1070464851
+      Data4: 1311264594
+    Path: event:/LightsOn
+  <LightsOffEvent>k__BackingField:
+    Guid:
+      Data1: -368109121
+      Data2: 1292562892
+      Data3: -1714980463
+      Data4: -1969915596
+    Path: event:/SwitchLights
+  <ButtonEvent>k__BackingField:
+    Guid:
+      Data1: -1377873777
+      Data2: 1225200858
+      Data3: 165880747
+      Data4: 316012564
+    Path: event:/MainMenuButton
+  <BurstEvent>k__BackingField:
+    Guid:
+      Data1: 133066336
+      Data2: 1221740684
+      Data3: -975987554
+      Data4: 811403158
+    Path: event:/MiniGameBurst
+  <HitEvent>k__BackingField:
+    Guid:
+      Data1: -782160573
+      Data2: 1341093944
+      Data3: 1586129301
+      Data4: 1894064848
+    Path: event:/MiniGameHit
+  <MonsterEvent>k__BackingField:
+    Guid:
+      Data1: 1986881542
+      Data2: 1337880645
+      Data3: -1228349789
+      Data4: -1247020597
+    Path: event:/MiniGameMonster
+  <TransitionInEvent>k__BackingField:
+    Guid:
+      Data1: -1151434417
+      Data2: 1183383908
+      Data3: -26349438
+      Data4: 1427655256
+    Path: event:/TransitionIn
+  <TransitionOutEvent>k__BackingField:
+    Guid:
+      Data1: -732227090
+      Data2: 1256020608
+      Data3: 1050426010
+      Data4: 598051046
+    Path: event:/TransitionOut
+  <WalkingEvent>k__BackingField:
+    Guid:
+      Data1: -1895764968
+      Data2: 1315194604
+      Data3: -1508840006
+      Data4: -1246803677
+    Path: event:/Walking
+  <ClimbingEvent>k__BackingField:
+    Guid:
+      Data1: -1338141620
+      Data2: 1276783483
+      Data3: -1759230835
+      Data4: 2002917280
+    Path: event:/Climbing
+  <DialogueEvent>k__BackingField:
+    Guid:
+      Data1: 2143664365
+      Data2: 1216981924
+      Data3: 919509930
+      Data4: -497275890
+    Path: event:/Dialogue
+--- !u!4 &474189533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474189531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.10718126, y: 0.0395445, z: -8.110503}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1263216882}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &512532376
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,8 +3201,8 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3053,14 +3210,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3187,6 +3336,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &553774847
 GameObject:
   m_ObjectHideFlags: 0
@@ -6017,6 +6179,7 @@ GameObject:
   - component: {fileID: 1094170940}
   - component: {fileID: 1094170942}
   - component: {fileID: 1094170941}
+  - component: {fileID: 1094170943}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -6112,6 +6275,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1094170943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094170939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381d4b793e7031c47a28ac4cc7b47784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1101102028
 GameObject:
   m_ObjectHideFlags: 0
@@ -7033,6 +7208,92 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249067034}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1263216881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263216882}
+  - component: {fileID: 1263216883}
+  m_Layer: 0
+  m_Name: FMODEvents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263216882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263216881}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 474189533}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1263216883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263216881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c7eda9e176e6d4ba3eabd5048200f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <mainMenuMusic>k__BackingField:
+    Guid:
+      Data1: -1007617343
+      Data2: 1090490738
+      Data3: 1764148613
+      Data4: 413264134
+    Path: event:/MusicMainMenu
+  <walkingMusic>k__BackingField:
+    Guid:
+      Data1: -677228801
+      Data2: 1303864790
+      Data3: 2114973589
+      Data4: 1822691089
+    Path: event:/MusicWalking
+  <endOfLifeMusic>k__BackingField:
+    Guid:
+      Data1: -940496863
+      Data2: 1262651542
+      Data3: 1031635332
+      Data4: -957718328
+    Path: event:/MusicEndOfLife
+  <miniGameMusic>k__BackingField:
+    Guid:
+      Data1: 1314065769
+      Data2: 1224094650
+      Data3: 1226135742
+      Data4: 479148842
+    Path: event:/MusicMiniGame
+  <lifeEventMusic>k__BackingField:
+    Guid:
+      Data1: -1007617343
+      Data2: 1090490738
+      Data3: 1764148613
+      Data4: 413264134
+    Path: event:/MusicMainMenu
+  <teacherMusic>k__BackingField:
+    Guid:
+      Data1: 1044623377
+      Data2: 1182718987
+      Data3: -565563248
+      Data4: 762584484
+    Path: event:/MusicTeacher
 --- !u!1 &1291882648
 GameObject:
   m_ObjectHideFlags: 0
@@ -12074,3 +12335,4 @@ SceneRoots:
   - {fileID: 392010006}
   - {fileID: 188009613}
   - {fileID: 1800361808}
+  - {fileID: 474189533}
