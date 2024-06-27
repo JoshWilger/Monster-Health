@@ -6,20 +6,20 @@ using UnityEngine.SceneManagement;
 public class PathObstacleManager : MonoBehaviour
 {
     public GameObject active_objects;
-    public GameObject bushes;
-    public GameObject snails;
+    //public GameObject bushes;
+    //public GameObject snails;
 
     public Vector2 x_range = new Vector2(-5.65f, 5.65f);
     public float spawn_time = 1f;
     public float speed = 10f;
 
-    private List<GameObject> obstacle_list = new List<GameObject>();
+    public List<GameObject> obstacle_list = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        obstacle_list.Add(bushes);
-        obstacle_list.Add(snails);
+        //obstacle_list.Add(bushes);
+        //obstacle_list.Add(snails);
         StartCoroutine(SpawnObstacles());
     }
 
@@ -65,6 +65,7 @@ public class PathObstacleManager : MonoBehaviour
     {
         yield return new WaitForSeconds(8);
         obstacle.transform.parent = previous_parent.transform;
+        obstacle.GetComponent<ObstacleScript>().End();
         yield return null;
     }
 
