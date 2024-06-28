@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public float currentHealth = 3;
+    public bool hasPopped = false;
     public Animator bubbleAnimator;
     public float deathDelay = 1.5f;
 
@@ -22,6 +23,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (bubbleAnimator != null)
         {
+            if(currentHealth == 0 && !hasPopped)
+            {
+                hasPopped = true;
+                AudioManager.instance.PlayBurstEvent();
+            }
             bubbleAnimator.SetFloat("health", currentHealth);
         }
 
@@ -29,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (timePlayerDied != 0 && Time.time - timePlayerDied > deathDelay)
             {
+                AudioManager.instance.PlayMonsterEvent();
                 Debug.Log("Player died. Restarting scene.");
                 string currentSceneName = SceneManager.GetActiveScene().name;
                 SceneManager.LoadScene(currentSceneName);
@@ -45,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
+            AudioManager.instance.PlayHitEvent();
             currentHealth--;
         }
         Debug.Log($"Health: {currentHealth}");

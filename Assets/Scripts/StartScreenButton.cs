@@ -10,11 +10,13 @@ public class StartScreenButton : MonoBehaviour
 	public AudioClip clickSound;
 
 	public void HoverSound() {
+		AudioManager.instance.PlayLightsOffEvent();
 		buttonSource.PlayOneShot(hoverSound);
 	}
 
 	public void ClickSound()
 	{
+		AudioManager.instance.PlayButtonEvent();
 		buttonSource.PlayOneShot(clickSound);
 	}
 

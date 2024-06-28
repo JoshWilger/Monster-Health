@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Workspace" id="{728bf01d-e666-474f-9718-42365bf72f9a}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../../../../Unity/Monster-Health/Assets/FMODBanks</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{b97d5c6e-ad53-448d-bbca-45ee031d81a0}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{0fedaf76-ae54-442f-8cb9-4431f512541c}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{929e7d75-ab50-4d40-b43e-35f2af174bfe}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{4812470d-2eb5-409b-a70e-ffecf669af46}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{be4abc91-8846-4d75-bbf8-a9e9fb66c3b2}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{2790f380-2724-4ce0-bd8b-1003051bd83f}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{8d6489dc-45cc-427c-ab5c-e0e8e8ed2018}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{cfc2e0ab-1c3d-4687-8b9f-c5d801a33832}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{eda45d7e-ebc3-45dd-a1c3-ad63814e02b9}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{20d781b7-8e71-4e04-827a-862ef14c6fa4}</destination>
+		</relationship>
+	</object>
+</objects>

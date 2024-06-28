@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{37ee0e42-21e1-4f97-b787-c55fc4d563ba}">
+		<property name="assetPath">
+			<value>Nostalgia - Grape Split.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>182.40000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8d6489dc-45cc-427c-ab5c-e0e8e8ed2018}</destination>
+		</relationship>
+	</object>
+</objects>

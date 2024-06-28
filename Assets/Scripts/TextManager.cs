@@ -137,6 +137,7 @@ public class TextManager : MonoBehaviour
     }
     public void AddMessage(string message)
     {
+        AudioManager.instance.PlayDialoguegEvent();
         message_que.Add(message);
     }
 

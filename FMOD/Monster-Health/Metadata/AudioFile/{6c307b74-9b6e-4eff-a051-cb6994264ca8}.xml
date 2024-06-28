@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6c307b74-9b6e-4eff-a051-cb6994264ca8}">
+		<property name="assetPath">
+			<value>Light B.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.6629166666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8d6489dc-45cc-427c-ab5c-e0e8e8ed2018}</destination>
+		</relationship>
+	</object>
+</objects>

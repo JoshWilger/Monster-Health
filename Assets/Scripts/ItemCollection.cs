@@ -20,6 +20,7 @@ public class ItemCollection : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Collectable"))
         {
+            AudioManager.instance.PlayCoinEvent();
             UpdateCollection(other);
         }
     }
