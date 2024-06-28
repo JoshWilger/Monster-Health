@@ -3754,6 +3754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 3
+  hasPopped: 0
   bubbleAnimator: {fileID: 62076485}
   deathDelay: 1.5
 --- !u!114 &262440355
@@ -5617,10 +5618,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainmenuMusic: 0
-  walkingMusic: 1
+  walkingMusic: 0
   lifeeventMusic: 0
   endoflifeMusic: 0
-  minigameMusic: 0
+  minigameMusic: 1
   teacherMusic: 0
   testTransform: {fileID: 0}
   <CoinEvent>k__BackingField:

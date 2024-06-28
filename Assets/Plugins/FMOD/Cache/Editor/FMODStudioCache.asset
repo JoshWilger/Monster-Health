@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: 1764148613
     Data4: 413264134
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
     Data3: 1050426010
     Data4: 598051046
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -54,26 +54,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5800
---- !u!114 &-6570629114577216424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ../../Users/Andre/Desktop/FMOD/Monster-Health/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638550802821993581
-  FileSizes:
-  - Name: Desktop
-    Value: 9584416
-  Exists: 1
 --- !u!114 &-6427437121138448328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +73,7 @@ MonoBehaviour:
     Data3: -1508840006
     Data4: -1246803677
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -120,7 +100,7 @@ MonoBehaviour:
     Data3: -1228349789
     Data4: -1247020597
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -147,7 +127,7 @@ MonoBehaviour:
     Data3: -975987554
     Data4: 811403158
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -174,7 +154,7 @@ MonoBehaviour:
     Data3: 1031635332
     Data4: -957718328
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -201,7 +181,7 @@ MonoBehaviour:
     Data3: -1070464851
     Data4: 1311264594
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -228,7 +208,7 @@ MonoBehaviour:
     Data3: 1354095252
     Data4: 754861655
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -255,7 +235,7 @@ MonoBehaviour:
     Data3: -880407625
     Data4: -1449103901
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -263,6 +243,46 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-1947100307312702037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../Users/Andre/Desktop/FMOD/Monster-Health/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638550802821993581
+  FileSizes:
+  - Name: Desktop
+    Value: 9584416
+  Exists: 1
+--- !u!114 &-1304394188547360171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../Users/Andre/Desktop/FMOD/Monster-Health/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638550802822003552
+  FileSizes:
+  - Name: Desktop
+    Value: 1634
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,8 +296,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 3337999494936348914}
-  - {fileID: -6570629114577216424}
+  - {fileID: -1304394188547360171}
+  - {fileID: -1947100307312702037}
   EditorEvents:
   - {fileID: -4901898303937155400}
   - {fileID: 1882356487061225846}
@@ -302,9 +322,9 @@ MonoBehaviour:
   - {fileID: 7301119226813268413}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   StringsBanks:
-  - {fileID: 3337999494936348914}
+  - {fileID: -1304394188547360171}
   cacheTime: 638550802822003552
   cacheVersion: 131616
 --- !u!114 &541450665187314222
@@ -326,7 +346,7 @@ MonoBehaviour:
     Data3: 685560751
     Data4: -685817607
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -353,7 +373,7 @@ MonoBehaviour:
     Data3: -113504892
     Data4: 908381289
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -380,7 +400,7 @@ MonoBehaviour:
     Data3: 1226135742
     Data4: 479148842
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -407,7 +427,7 @@ MonoBehaviour:
     Data3: -565563248
     Data4: 762584484
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -434,7 +454,7 @@ MonoBehaviour:
     Data3: 165880747
     Data4: 316012564
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -442,26 +462,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
---- !u!114 &3337999494936348914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../../Users/Andre/Desktop/FMOD/Monster-Health/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638550802822003552
-  FileSizes:
-  - Name: Desktop
-    Value: 1634
-  Exists: 1
 --- !u!114 &3489169230927131974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
     Data3: -1759230835
     Data4: 2002917280
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -508,7 +508,7 @@ MonoBehaviour:
     Data3: 1586129301
     Data4: 1894064848
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -535,7 +535,7 @@ MonoBehaviour:
     Data3: -548631640
     Data4: -727647147
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -562,7 +562,7 @@ MonoBehaviour:
     Data3: -26349438
     Data4: 1427655256
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -589,7 +589,7 @@ MonoBehaviour:
     Data3: -1714980463
     Data4: -1969915596
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -616,7 +616,7 @@ MonoBehaviour:
     Data3: 2114973589
     Data4: 1822691089
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -643,7 +643,7 @@ MonoBehaviour:
     Data3: 919509930
     Data4: -497275890
   Banks:
-  - {fileID: -6570629114577216424}
+  - {fileID: -1947100307312702037}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
