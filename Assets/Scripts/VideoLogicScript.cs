@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class VideoLogicScript : MonoBehaviour
 {
     public Camera cam;
+    public string sceneName;
     VideoPlayer player;
 
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class VideoLogicScript : MonoBehaviour
 
     void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
-        SceneManager.LoadScene("WalkingScene");
+        SceneManager.LoadScene(sceneName);
     }
 
 }
