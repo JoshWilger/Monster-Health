@@ -18,7 +18,7 @@ public class ItemCollection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Collectable"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Collectable") && other.enabled)
         {
             AudioManager.instance.PlayCoinEvent();
             UpdateCollection(other);
@@ -32,7 +32,7 @@ public class ItemCollection : MonoBehaviour
         {
             itemsCollectedText.text = totalItemsCollected.ToString();
         }
-        Destroy(other.gameObject);
+        other.gameObject.SetActive(false);
         Debug.Log($"{other.gameObject.name} collected: {totalItemsCollected}");
     }
 }
