@@ -5,16 +5,20 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Text.RegularExpressions;
 using System.Linq;
+using UnityEditor.Callbacks;
+using Unity.VisualScripting;
 using System;
+using static Unity.VisualScripting.Member;
 using TMPro;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 using static DecisionList;
+using UnityEngine.Networking;
 //using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
 {
-    public float text_delay = 0.1f;
+    public float text_delay = 0.06f;
     public String speaker_name;
     public String DEBUG_TEXT = "[0.3]This is a message for debugging!";
     public List<AudioClip> text_audio_clips;
@@ -30,9 +34,13 @@ public class TextManager : MonoBehaviour
     private VisualElement decision_button_container;
     private Button decision_button_1;
     private Button decision_button_2;
+    private Button decision_button_3;
+    private VisualElement decision_3_background;
+    private VisualElement character_image;
 
     private Action b1_delegate;
     private Action b2_delegate;
+    private Action b3_delegate;
 
     private DecisionManager decision_manager;
 
@@ -41,7 +49,13 @@ public class TextManager : MonoBehaviour
     [SerializeField]
     private List<(DecisionList, int)> decision_que = new List<(DecisionList, int)>();
     [SerializeField]
-    private List<(string, Color, int)> speaker_que = new List<(string, Color, int)>();
+    private List<(string, int)> speaker_que = new List<(string, int)>();
+    [SerializeField]
+    private List<(CustomFunction, int)> function_que = new List<(CustomFunction, int)>();
+    [SerializeField]
+    private List<(float, int)> pause_que = new List<(float, int)>();
+    [SerializeField]
+    private List<(string, int)> image_que = new List<(string, int)>();
 
     private void OnEnable()
     {
@@ -53,7 +67,10 @@ public class TextManager : MonoBehaviour
         decision_button_container = root.Q<VisualElement>("DecisionContainer");
         decision_button_1 = root.Q<Button>("Decision1Button");
         decision_button_2 = root.Q<Button>("Decision2Button");
+        decision_button_3 = root.Q<Button>("Decision3Button");
+        decision_3_background = root.Q<VisualElement>("Decision3Background");
         audioSource = GetComponent<AudioSource>();
+        character_image = root.Q<VisualElement>("CharacterImage");
 
         GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
         foreach (GameObject obj in rootObjects)
@@ -73,53 +90,64 @@ public class TextManager : MonoBehaviour
             //skip_txt = true;
         }
     }
-    public void AddSpeakerChange(String speaker, Color col)
+    public void AddCharacterChange(string image_path)
+    {
+        image_que.Add((image_path, message_que.Count()));
+    }
+    public void AddSpeakerChange(String speaker)
     {
         //speaker_name = speaker;
-        speaker_que.Add((speaker, col, message_que.Count()));
+        speaker_que.Add((speaker, message_que.Count()));
         if (speaker_que.Count == 0)
         {
-            ChangeSpeaker(speaker, col);
+            ChangeSpeaker(speaker);
         }
     }
 
-    private void ChangeSpeaker(String speaker, Color col)
+    private void ChangeSpeaker(String speaker)
     {
         speaker_name = speaker;
         name_txt.text = speaker_name;
-        ChangeOutlineColor(col);
+        //ChangeOutlineColor(col);
+    }
+
+    public void AddCustomFunction(CustomFunction customFunction)
+    {
+        function_que.Add((customFunction, message_que.Count()));
+    }
+
+    public void AddPause(float pause)
+    {
+        pause_que.Add((pause, message_que.Count()));
     }
 
     private void ChangeOutlineColor(Color col)
     {
-        txt_container.style.borderBottomColor = col;
+        /*txt_container.style.borderBottomColor = col;
         txt_container.style.borderLeftColor = col;
         txt_container.style.borderRightColor = col;
         txt_container.style.borderTopColor = col;
-        nametxt_container.style.backgroundColor = col;
+        nametxt_container.style.backgroundColor = col;*/
     }
 
     [ContextMenu("DebugMessageQue")]
     private void DebugMessageQue()
     {
-        AddSpeakerChange("Speaker1", new Color(0,1,0));
-        AddMessage(DEBUG_TEXT);
-        AddMessage("[0.06]This is an internal message that is second in the list.");
-        AddMessage("[0.06]cool");
-
         DecisionList new_dl = new DecisionList();
         new_dl.text_1 = "Option1";
         new_dl.text_2 = "Option2";
         new_dl.decision1 = DebugOption1;
         new_dl.decision2 = DebugOption1;
-        AddSpeakerChange("Speaker2", new Color(1, 0, 0));
+        AddSpeakerChange("Speaker2");
         AddMessageWithDecision("[0.06]Choose an option", new_dl);
 
         DecisionList new_dl_2 = new DecisionList();
         new_dl_2.text_1 = "Option3";
         new_dl_2.text_2 = "Option4";
+        new_dl_2.text_3 = "Option5";
         new_dl_2.decision1 = DebugOption1_2;
         new_dl_2.decision2 = DebugOption1_2;
+        new_dl_2.decision3 = DebugOption1_2;
         AddMessageWithDecision("[0.06]Choose another option", new_dl_2);
 
         AddMessage("[0.06]thanks!");
@@ -137,7 +165,6 @@ public class TextManager : MonoBehaviour
     }
     public void AddMessage(string message)
     {
-        AudioManager.instance.PlayDialoguegEvent();
         message_que.Add(message);
     }
 
@@ -151,6 +178,7 @@ public class TextManager : MonoBehaviour
     {
         nametxt_container.visible = true;
         txt_container.visible = true;
+        character_image.visible = true;
         //name_txt.text = speaker_name;
         StartCoroutine("AnimateText");
     }
@@ -159,9 +187,21 @@ public class TextManager : MonoBehaviour
     {
         nametxt_container.visible = false;
         txt_container.visible = false;
+        character_image.visible = false;
         name_txt.text = "";
-        ChangeOutlineColor(new Color(0, 1, 0));
+        //ChangeOutlineColor(new Color(0, 1, 0));
+        if (function_que.Count() > 0)
+        {
+            if (function_que[function_que.Count() - 1].Item2 == message_que.Count())
+            {
+                (CustomFunction, int) function_info = function_que[function_que.Count() - 1];
+                function_info.Item1.custom_function();
+            }
+        }
         message_que.Clear();
+        decision_que.Clear();
+        function_que.Clear();
+        pause_que.Clear();
     }
 
     IEnumerator AnimateText()
@@ -171,10 +211,40 @@ public class TextManager : MonoBehaviour
         {
             for (int k = 0; k < message_que.Count; k++)
             {
-                if (speaker_que.Any(t => t.Item3 == k))
+                if (speaker_que.Any(t => t.Item2 == k))
                 {
-                    (string, Color, int) speaker_info = speaker_que.Find(t => t.Item3 == k);
-                    ChangeSpeaker(speaker_info.Item1, speaker_info.Item2);
+                    (string, int) speaker_info = speaker_que.Find(t => t.Item2 == k);
+                    ChangeSpeaker(speaker_info.Item1);
+                }
+
+                if (image_que.Any(t => t.Item2 == k))
+                {
+                    (string, int) image_info = image_que.Find(t => t.Item2 == k);
+                    if (image_info.Item1 != "")
+                    {
+                        StartCoroutine(SetCharacterImage(image_info.Item1));
+                    }
+                    else
+                    {
+                        character_image.style.backgroundImage = null;
+                    }
+                }
+
+                if (function_que.Any(t => t.Item2 == k))
+                {
+                    (CustomFunction, int) function_info = function_que.Find(t => t.Item2 == k);
+                    function_info.Item1.custom_function();
+                }
+
+                if (pause_que.Any(t => t.Item2 == k))
+                {
+                    (float, int) pause_info = pause_que.Find(t => t.Item2 == k);
+                    nametxt_container.visible = false;
+                    txt_container.visible = false;
+                    txt.text = "";
+                    yield return new WaitForSeconds(pause_info.Item1);
+                    nametxt_container.visible = true;
+                    txt_container.visible = true;
                 }
 
                 current_txt_end = false;
@@ -235,15 +305,32 @@ public class TextManager : MonoBehaviour
                         decision_button_2.clicked -= b2_delegate;
                     }
                     DecisionList dl = decision_que.Find(t => t.Item2 == k).Item1;
+                    decision_3_background.visible = false;
                     decision_button_container.visible = true;
-                    decision_button_1.text = dl.text_1; 
+                    decision_3_background.visible = false;
+                    decision_button_1.visible = true;
+                    decision_button_2.visible = true;
+                    decision_button_1.text = dl.text_1;
                     decision_button_2.text = dl.text_2;
                     b1_delegate = () => OnOptionClick(dl, 1);
                     b2_delegate = () => OnOptionClick(dl, 1);
                     decision_button_1.clicked += b1_delegate;
                     decision_button_2.clicked += b2_delegate;
-                    decision_button_1.visible = true;
-                    decision_button_2.visible = true;
+
+                    if (dl.decision3 != null)
+                    {
+                        print("THERE IS A THIRD");
+                        if (b3_delegate != null)
+                        {
+                            decision_button_3.clicked -= b3_delegate;
+                        }
+                        decision_button_3.clicked -= b3_delegate;
+                        decision_button_3.visible = true;
+                        decision_3_background.visible = true;
+                        decision_button_3.text = dl.text_3;
+                        b3_delegate = () => OnOptionClick(dl, 1);
+                        decision_button_3.clicked += b3_delegate;
+                    }
                 }
                 yield return WaitForMouse();
             }
@@ -278,19 +365,33 @@ public class TextManager : MonoBehaviour
         }
     }
 
+    private IEnumerator SetCharacterImage(string filePath)
+    {
+        Texture2D tex = Resources.Load<Texture2D>(filePath);
+        //character_image.style.backgroundImage = tex;
+        character_image.style.backgroundImage = tex;
+        yield return null;
+    }
+
     void OnOptionClick(DecisionList chosen_decision_list, int decision_index)
     {
         decision_button_container.visible = false;
         decision_button_1.visible = false;
         decision_button_2.visible = false;
+        decision_button_3.visible = false;
+        decision_3_background.visible = false;
         print("Called Click!");
         if (decision_index == 1)
         {
             chosen_decision_list.decision1();
         }
-        else
+        else if (decision_index == 2)
         {
             chosen_decision_list.decision2();
+        }
+        else if (decision_index == 3)
+        {
+            chosen_decision_list.decision3();
         }
         question_hold = false;
     }
