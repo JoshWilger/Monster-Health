@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlaygroundIntro : MonoBehaviour
 {
     public string sceneName;
+    public float startingDelay = 4f;
+    public float endingDelay = 3f;
     private TextManager textManager;
 
     // Start is called before the first frame update
@@ -20,6 +22,7 @@ public class PlaygroundIntro : MonoBehaviour
             var endScene = new CustomFunction();
             endScene.custom_function = new CustomFunction.functionDelegate(EndScene);
 
+            textManager.AddPause(startingDelay);
             textManager.AddSpeakerChange("Narrator");
             textManager.AddMessage("[0.06]You find yourself on your school playground, [0.2][0.06]surrounded by swings, [0.15][0.06]slides, [0.15][0.06]and laughter. [0.2][0.06]The sight brings back memories, [0.2][0.04]both joyful [0.1]and anxious.");
             textManager.AddSpeakerChange("You");
@@ -30,6 +33,7 @@ public class PlaygroundIntro : MonoBehaviour
             textManager.AddMessage("[0.06]Remember the good moments, and learn from the difficult ones.[0.2][0.1] This is what is going to shape who you are.");
             textManager.AddMessage("[0.08]It’s okay to feel scared. [0.2][0.06]Just keep moving, one step at a time. [0.2][0.06]You'll get through this.");
             textManager.AddMessage("[0.06]Each challenge you face is a chance to [0.1]grow. [0.2][0.06]Embrace them, [0.15][0.06]and you'll find your way.");
+            textManager.AddPause(endingDelay);
             textManager.AddCustomFunction(endScene);
             textManager.PlayMessageQue();
         }
