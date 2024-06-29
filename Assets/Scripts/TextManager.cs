@@ -84,10 +84,10 @@ public class TextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && current_txt_end == false)
+        if (Input.GetMouseButtonDown(0) && current_txt_end == false)
         {
-            //current_txt_end = true;
-            //skip_txt = true;
+            current_txt_end = true;
+            skip_txt = true;
         }
     }
     public void AddCharacterChange(string image_path)
