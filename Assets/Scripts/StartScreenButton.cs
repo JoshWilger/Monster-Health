@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartScreenButton : MonoBehaviour
 {
 	public AudioSource buttonSource;
 	public AudioClip hoverSound;
 	public AudioClip clickSound;
+	Animator fadeAnimator;
 
-	public void HoverSound() {
+    private void Start(){
+		fadeAnimator = FindAnyObjectByType<Animator>();
+	}
+
+    public void HoverSound() {
 		AudioManager.instance.PlayLightsOffEvent();
 		buttonSource.PlayOneShot(hoverSound);
 	}
@@ -21,7 +27,12 @@ public class StartScreenButton : MonoBehaviour
 	}
 
 	public void LoadGame(){
-		//2 corresponds to VideoScene
-		SceneManager.LoadScene(2);
+		StartCoroutine(LoadFade());
 	}
+
+	IEnumerator LoadFade(){
+        fadeAnimator.SetTrigger("FadeOut");
+		yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(2);
+    }
 }

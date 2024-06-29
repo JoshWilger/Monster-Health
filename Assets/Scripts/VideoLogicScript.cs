@@ -8,12 +8,16 @@ public class VideoLogicScript : MonoBehaviour
 {
     public Camera cam;
     VideoPlayer player;
+    Animator fadeAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         player = cam.GetComponent<VideoPlayer>();
+        fadeAnimator = FindAnyObjectByType<Animator>();
         player.loopPointReached += EndReached;
+        Pause();
+        player.Play();
     }
 
     // Update is called once per frame
@@ -24,7 +28,18 @@ public class VideoLogicScript : MonoBehaviour
 
     void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
-        SceneManager.LoadScene("WalkingScene");
+        fadeAnimator.SetTrigger("Fade");
+        StartCoroutine(Pause2());
     }
 
+    IEnumerator Pause()
+    {
+        yield return new WaitForSeconds(1.5f);
+    }
+
+    IEnumerator Pause2()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("WalkingScene");
+    }
 }
