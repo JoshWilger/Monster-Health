@@ -49,7 +49,7 @@ public class PathObstacleManager : MonoBehaviour
         StartCoroutine(ReturnObstacles(obstacle, obstacle.transform.parent.gameObject));
         obstacle.transform.parent = active_objects.transform;
         float random_x = Random.Range(x_range.x, x_range.y);
-        int random_flip = Random.Range(0, 2);
+/*        int random_flip = Random.Range(0, 2);
         if (random_flip == 0)
         {
             obstacle.transform.eulerAngles = new Vector3(obstacle.transform.eulerAngles.x, 0, obstacle.transform.eulerAngles.z);
@@ -57,7 +57,7 @@ public class PathObstacleManager : MonoBehaviour
         else
         {
             obstacle.transform.eulerAngles = new Vector3(obstacle.transform.eulerAngles.x, 180, obstacle.transform.eulerAngles.z);
-        }
+        }*/
         obstacle.transform.position = new Vector3(random_x, obstacle.transform.position.y, 57.14762f);
     }
 
