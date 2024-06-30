@@ -5,15 +5,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Text.RegularExpressions;
 using System.Linq;
-using UnityEditor.Callbacks;
-using Unity.VisualScripting;
 using System;
-using static Unity.VisualScripting.Member;
-using TMPro;
-using UnityEditor;
 using UnityEngine.SceneManagement;
-using static DecisionList;
-using UnityEngine.Networking;
 //using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
