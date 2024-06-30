@@ -21,6 +21,7 @@ public class LightbulbCollection : ItemCollection
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Lightbulb"))
         {
+            AudioManager.instance.PlayLightsOnEvent();
             UpdateLight();
             UpdateCollection(other);
         }

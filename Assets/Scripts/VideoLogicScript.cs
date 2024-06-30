@@ -28,6 +28,7 @@ public class VideoLogicScript : MonoBehaviour
 
     void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
+        AudioManager.instance.PlayTransitionOutEvent();
         fadeAnimator.SetTrigger("Fade");
         StartCoroutine(Pause2());
     }

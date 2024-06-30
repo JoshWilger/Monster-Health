@@ -328,9 +328,9 @@ MonoBehaviour:
   mainmenuMusic: 0
   walkingMusic: 0
   lifeeventMusic: 0
-  endoflifeMusic: 0
+  endoflifeMusic: 1
   minigameMusic: 0
-  teacherMusic: 1
+  teacherMusic: 0
   testTransform: {fileID: 0}
   <CoinEvent>k__BackingField:
     Guid:

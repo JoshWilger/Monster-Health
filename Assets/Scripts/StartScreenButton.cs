@@ -30,8 +30,10 @@ public class StartScreenButton : MonoBehaviour
 		StartCoroutine(LoadFade());
 	}
 
-	IEnumerator LoadFade(){
+	IEnumerator LoadFade()
+	{
         fadeAnimator.SetTrigger("FadeOut");
+		AudioManager.instance.PlayTransitionInEvent();
 		yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(2);
     }

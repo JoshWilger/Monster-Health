@@ -340,6 +340,7 @@ public class TextManager : MonoBehaviour
                     }
                 }
                 yield return WaitForMouse();
+                AudioManager.instance.PlayDialoguegEvent();
             }
             EndMessageQue();
         }

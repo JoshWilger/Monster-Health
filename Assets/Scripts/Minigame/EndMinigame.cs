@@ -29,6 +29,7 @@ public class EndMinigame : MonoBehaviour
 
     public void fadeToScene()
     {
+        AudioManager.instance.PlayTransitionInEvent();
         print("FADE!");
         Color initialColor = new Color(1, 1, 1, 0.0f);
         Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 1.0f); // Target color with 0 alpha
