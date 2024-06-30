@@ -298,7 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: StartScene
   startingDelay: 4
-  endingDelay: 3
+  endingDelay: 5
 --- !u!1001 &550578077
 PrefabInstance:
   m_ObjectHideFlags: 0

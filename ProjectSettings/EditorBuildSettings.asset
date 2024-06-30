@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TeacherScene.unity
     guid: 85913f67db09bb54f97016551fe2e035
+  - enabled: 1
+    path: Assets/Scenes/ManicsScene.unity
+    guid: b2420b12b56645e4bbc33a85ec5ad4c6
   m_configObjects: {}
