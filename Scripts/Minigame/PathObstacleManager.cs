@@ -21,7 +21,6 @@ public class PathObstacleManager : MonoBehaviour
 
     [Header("Ending")]
     public bool has_ending = false;
-    public int countdownTime = 5;
     public GameObject ending_door;
     public GameObject player;
 
@@ -53,6 +52,7 @@ public class PathObstacleManager : MonoBehaviour
 
     IEnumerator CountdownTimer()
     {
+        int countdownTime = 5;
         while (countdownTime > 0)
         {
             yield return new WaitForSeconds(1);
