@@ -3422,7 +3422,7 @@ GameObject:
   - component: {fileID: 236317478}
   - component: {fileID: 236317477}
   - component: {fileID: 236317476}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: CollisionBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3963,8 +3963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75af8d554190c80498feec0fe00e86c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walking_speed: 10
-  jump_force: 7
+  walking_speed: 7
+  jump_force: 8
   jump_cooldown: 0.25
   air_multiplier: 0.2
   collision_box: {fileID: 2135451401}
@@ -15705,7 +15705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1090740593}
   - component: {fileID: 1090740594}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25090,7 +25090,7 @@ MonoBehaviour:
   - {fileID: 333590014}
   - {fileID: 1952179883}
   has_ending: 1
-  countdownTime: 5
+  countdownTime: 54
   ending_door: {fileID: 1940080914}
   player: {fileID: 262440347}
 --- !u!1 &1811497942
