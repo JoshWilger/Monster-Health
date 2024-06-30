@@ -24,6 +24,7 @@ public class TextManager : MonoBehaviour
     public List<AudioClip> text_audio_clips;
     private AudioSource audioSource;
     private int last_played_index = -1;
+    private float skip_speed = 1;
     private Label txt;
     private VisualElement txt_container;
     private Label name_txt;
@@ -84,10 +85,16 @@ public class TextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && current_txt_end == false)
+
+        /*if (Input.GetMouseButtonUp(0))
         {
-            //current_txt_end = true;
+            skip_txt = false;
+        }*/
+        if (Input.GetMouseButtonDown(0) && current_txt_end == false)
+        {
+            skip_speed *= 1.1f;
             //skip_txt = true;
+            //current_txt_end = true;
         }
     }
     public void AddCharacterChange(string image_path)
@@ -220,7 +227,14 @@ public class TextManager : MonoBehaviour
                 if (image_que.Any(t => t.Item2 == k))
                 {
                     (string, int) image_info = image_que.Find(t => t.Item2 == k);
-                    StartCoroutine(SetCharacterImage(image_info.Item1));
+                    if (image_info.Item1 != "")
+                    {
+                        StartCoroutine(SetCharacterImage(image_info.Item1));
+                    }
+                    else
+                    {
+                        character_image.style.backgroundImage = null;
+                    }
                 }
 
                 if (function_que.Any(t => t.Item2 == k))
@@ -274,7 +288,7 @@ public class TextManager : MonoBehaviour
                     }
                     while (delay_times.Find(t => t.Item2 == i - 1) != (0, 0))
                     {
-                        current_text_delay = delay_times.Find(t => t.Item2 == i - 1).Item1;
+                        current_text_delay = delay_times.Find(t => t.Item2 == i - 1).Item1 / skip_speed;
                         if (delay_times.Count() > 1)
                         {
                             if (delay_times[1].Item2 == delay_times[0].Item2)
@@ -303,7 +317,7 @@ public class TextManager : MonoBehaviour
                     decision_3_background.visible = false;
                     decision_button_1.visible = true;
                     decision_button_2.visible = true;
-                    decision_button_1.text = dl.text_1; 
+                    decision_button_1.text = dl.text_1;
                     decision_button_2.text = dl.text_2;
                     b1_delegate = () => OnOptionClick(dl, 1);
                     b2_delegate = () => OnOptionClick(dl, 1);

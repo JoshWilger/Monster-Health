@@ -32,7 +32,7 @@ public class StoryManager : MonoBehaviour
                 root_ve = obj.GetComponent<UIDocument>().rootVisualElement;
             }
         }
-        text_manager.AddSpeakerChange("Narrator");
+        /*text_manager.AddSpeakerChange("Narrator");
         text_manager.AddMessage("Two shadowy figures,[0.1][0.06] their appearances indistinct yet comforting,[0.1][0.06] gently set you down on a vibrant path.");
         text_manager.AddMessage("Their eyes,[0.1][0.06] brimming with parental love,[0.1][0.06] follow your every move.");
         text_manager.AddMessage("Unbeknownst to you,[0.1][0.06] the world that surrounds is full of wonder,[0.1][0.06] a place where dreams and reality intertwine.");
@@ -51,7 +51,7 @@ public class StoryManager : MonoBehaviour
         text_manager.AddMessage("The world is vast and full of wonders,[0.1][0.06] waiting for you to uncover its secrets.[0.2][0.06] There will be moments of joy and moments of fear,[0.1][0.06] but each one will shape who you become.");
         text_manager.AddSpeakerChange("Narrator");
         text_manager.AddMessage("Press {W} to Walk");
-        text_manager.PlayMessageQue();
+        text_manager.PlayMessageQue();*/
 
 
     }
