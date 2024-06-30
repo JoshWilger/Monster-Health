@@ -285,7 +285,7 @@ MonoBehaviour:
   - {fileID: 7216331842007860983}
   StringsBanks:
   - {fileID: 7516319593008909236}
-  cacheTime: 638551961472265651
+  cacheTime: 638553573860889011
   cacheVersion: 131616
 --- !u!114 &541450665187314222
 MonoBehaviour:
@@ -572,7 +572,7 @@ MonoBehaviour:
   Path: FMOD/Monster-Health/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638551961472255931
+  lastModified: 638553573860887384
   FileSizes: []
   Exists: 1
 --- !u!114 &7301119226813268413
@@ -617,7 +617,7 @@ MonoBehaviour:
   Path: FMOD/Monster-Health/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638551961472265651
+  lastModified: 638553573860889011
   FileSizes:
   - Name: 
     Value: 1634
