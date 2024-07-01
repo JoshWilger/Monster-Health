@@ -9,6 +9,7 @@ public class PlaygroundIntro : MonoBehaviour
     public float startingDelay = 4f;
     public float endingDelay = 3f;
     private TextManager textManager;
+    private Animator fadeAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,9 @@ public class PlaygroundIntro : MonoBehaviour
         }
         else
         {
+            fadeAnimator = FindAnyObjectByType<Animator>();
+            fadeAnimator.SetTrigger("FadeIn");
+
             var endScene = new CustomFunction();
             endScene.custom_function = new CustomFunction.functionDelegate(EndScene);
 
@@ -33,16 +37,24 @@ public class PlaygroundIntro : MonoBehaviour
             textManager.AddMessage("[0.06]Remember the good moments, and learn from the difficult ones.[0.2][0.1] This is what is going to shape who you are.");
             textManager.AddMessage("[0.08]It’s okay to feel scared. [0.2][0.06]Just keep moving, one step at a time. [0.2][0.06]You'll get through this.");
             textManager.AddMessage("[0.06]Each challenge you face is a chance to [0.1]grow. [0.2][0.06]Embrace them, [0.15][0.06]and you'll find your way.");
-            textManager.AddPause(endingDelay);
             textManager.AddCustomFunction(endScene);
+            textManager.AddPause(endingDelay);
             textManager.PlayMessageQue();
         }
     }
 
     private void EndScene()
     {
+        StartCoroutine(LoadFadeOut());
+    }    
+
+    IEnumerator LoadFadeOut()
+    {
+        fadeAnimator.SetTrigger("Fade");
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
     }
+
 
     // Update is called once per frame
     void Update()

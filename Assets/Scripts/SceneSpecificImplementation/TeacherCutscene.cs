@@ -12,6 +12,7 @@ public class TeacherCutscene : MonoBehaviour
     public float endingDelay = 3f;
     private TextManager textManager;
     private VisualElement root_ve;
+    private Animator fadeAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class TeacherCutscene : MonoBehaviour
 
     IEnumerator BeginDialogue()
     {
+        fadeAnimator = FindAnyObjectByType<Animator>();
         fadeToScene();
         yield return new WaitForSeconds(1.1f);
 
@@ -80,6 +82,13 @@ public class TeacherCutscene : MonoBehaviour
     }
     private void EndScene()
     {
+        StartCoroutine(LoadFadeOut());
+    }
+
+    IEnumerator LoadFadeOut()
+    {
+        fadeAnimator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
     }
 }
