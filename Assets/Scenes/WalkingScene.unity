@@ -3994,6 +3994,8 @@ MonoBehaviour:
   hasPopped: 0
   bubbleAnimator: {fileID: 62076485}
   deathDelay: 1.5
+  startingDelay: 4
+  endingDelay: 3
 --- !u!114 &262440355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24794,7 +24796,7 @@ MonoBehaviour:
   - {fileID: 333590014}
   - {fileID: 1952179883}
   has_ending: 1
-  countdownTime: 5
+  countdownTime: 50
   ending_door: {fileID: 1940080914}
   player: {fileID: 262440347}
 --- !u!1 &1811497942

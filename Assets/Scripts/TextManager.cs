@@ -14,6 +14,7 @@ using UnityEditor;
 using UnityEngine.SceneManagement;
 using static DecisionList;
 using UnityEngine.Networking;
+using static UnityEngine.UIElements.VisualElement;
 //using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
@@ -301,6 +302,13 @@ public class TextManager : MonoBehaviour
                     yield return new WaitForSeconds(current_text_delay);
                     PlayRandomClip();
                     txt.text = text.Substring(0, i);
+                    Vector2 textSize = txt.MeasureTextSize(txt.text, txt_container.resolvedStyle.width-56, MeasureMode.Exactly, txt.resolvedStyle.height, MeasureMode.Undefined);
+                    if (textSize.y+100 > txt_container.contentRect.height)
+                    {
+                        txt.style.overflow = Overflow.Hidden;
+                        txt.style.unityTextAlign = TextAnchor.LowerLeft;
+                    }
+                    print(textSize.y);
                 }
                 skip_txt = false;
                 if (decision_que.Any(t => t.Item2 == k))

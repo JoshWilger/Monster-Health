@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,15 +13,26 @@ public class PlayerHealth : MonoBehaviour
     public float startingDelay = 4f;
     public float endingDelay = 3f;
 
+    private bool end = false;
+
     private float timePlayerDied = 0;
     private TextManager textManager;
+    private VisualElement root_ve;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (!TryGetComponent(out textManager))
+        GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+        foreach (GameObject obj in rootObjects)
         {
-            Debug.Log($"No {textManager.GetType()} found for {name}");
+            if (obj.name == "UIDocument")
+            {
+                textManager = obj.GetComponent<TextManager>();
+            }
+            if (obj.name == "UIDocument")
+            {
+                root_ve = obj.GetComponent<UIDocument>().rootVisualElement;
+            }
         }
     }
 
@@ -52,25 +64,36 @@ public class PlayerHealth : MonoBehaviour
             bubbleAnimator.SetFloat("health", currentHealth);
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !end)
         {
             if (timePlayerDied != 0 && Time.time - timePlayerDied > deathDelay)
             {
                 AudioManager.instance.PlayMonsterEvent();
 
-		        PlayImaginaryFriendDialogue();
+                StartCoroutine(PlayImaginaryFriendDialogue());
                 Debug.Log("Player died. Restarting scene.");
             }
+            AudioManager.instance.PlayMonsterEvent();
+            Color initialColor = new Color(0, 0, 0, 0.0f);
+            Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 1.0f);
+            //root_ve.Q<VisualElement>("BlackCover").style.backgroundColor = new StyleColor(targetColor);
+            root_ve.Q<VisualElement>("BlackCover").visible = true;
+            StartCoroutine(PlayImaginaryFriendDialogue());
+            Debug.Log("Player died. Restarting scene.");
             if (timePlayerDied == 0)
             {
                 timePlayerDied = Time.time;
             }
-
+            end = true;
         }
     }
 
     private void ResetScene()
-    { 
+    {
+        Color initialColor = new Color(0, 0, 0, 0.0f);
+        Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0.0f);
+        //root_ve.Q<VisualElement>("BlackCover").style.backgroundColor = new StyleColor(targetColor);
+        root_ve.Q<VisualElement>("BlackCover").visible = false;
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
