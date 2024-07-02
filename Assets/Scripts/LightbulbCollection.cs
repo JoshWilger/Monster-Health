@@ -15,6 +15,10 @@ public class LightbulbCollection : ItemCollection
         {
             fullBrightLightObject.SetActive(false);
         }
+        if (Time.time == 0)
+        {
+            AudioManager.instance.PlayLightsOffEvent();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

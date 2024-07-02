@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
     public bool minigameMusic;
     public bool teacherMusic;
 
+    public string lightsOnEventPath; 
+
     private List<EventInstance> eventInstances;
 
     private List<StudioEventEmitter> eventEmitters;
@@ -26,6 +28,8 @@ public class AudioManager : MonoBehaviour
     private EventInstance miniGameMusicEventInstance;
 
     private EventInstance endOfLifeMusicEventInstance;
+
+    private EventInstance lightsOnEventInstance;
 
     private EventInstance lifeEventMusicEventInstance;
 
@@ -74,6 +78,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopLightsOnEvent()
+    {
+        lightsOnEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
     private void InitializeMainMenuMusic(EventReference mainMenuMusicEventReference)
     {
         mainMenuMusicEventInstance = CreateInstance(mainMenuMusicEventReference);

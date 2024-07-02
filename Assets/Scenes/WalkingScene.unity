@@ -6608,11 +6608,11 @@ MonoBehaviour:
     Path: event:/LightsOn
   <LightsOffEvent>k__BackingField:
     Guid:
-      Data1: -368109121
-      Data2: 1292562892
-      Data3: -1714980463
-      Data4: -1969915596
-    Path: event:/SwitchLights
+      Data1: 898647772
+      Data2: 1181298892
+      Data3: -1943497085
+      Data4: 708049907
+    Path: event:/LightsOff
   <ButtonEvent>k__BackingField:
     Guid:
       Data1: -1377873777

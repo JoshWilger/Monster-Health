@@ -235,7 +235,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: ../../../Users/Andre/Desktop/FMOD/Monster-Health/Monster-Health.fspro
-  sourceBankPath: ../../../Users/Andre/Desktop/FMOD/Monster-Health/Build/Desktop
+  sourceBankPath: Assets/FMODBanks/Desktop/Desktop
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -258,7 +258,6 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  - Desktop/Master
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264

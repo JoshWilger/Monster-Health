@@ -327,8 +327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainmenuMusic: 0
   walkingMusic: 0
-  lifeeventMusic: 0
-  endoflifeMusic: 1
+  lifeeventMusic: 1
+  endoflifeMusic: 0
   minigameMusic: 0
   teacherMusic: 0
   testTransform: {fileID: 0}
@@ -807,11 +807,11 @@ MonoBehaviour:
     Path: event:/MusicMiniGame
   <lifeEventMusic>k__BackingField:
     Guid:
-      Data1: -1007617343
-      Data2: 1090490738
-      Data3: 1764148613
-      Data4: 413264134
-    Path: event:/MusicMainMenu
+      Data1: -252629330
+      Data2: 1173644731
+      Data3: 622660490
+      Data4: 1584945494
+    Path: event:/MusicVideoScene
   <teacherMusic>k__BackingField:
     Guid:
       Data1: 1044623377

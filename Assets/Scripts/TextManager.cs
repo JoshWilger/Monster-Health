@@ -210,7 +210,6 @@ public class TextManager : MonoBehaviour
         function_que.Clear();
         pause_que.Clear();
     }
-
     IEnumerator AnimateText()
     {
         float current_text_delay = text_delay;
@@ -255,6 +254,7 @@ public class TextManager : MonoBehaviour
                 }
 
                 current_txt_end = false;
+                AudioManager.instance.PlayDialoguegEvent();
                 var text = message_que[k];
                 //print("ALIVE4");
                 List<int> open_indices = new List<int>();
@@ -340,7 +340,6 @@ public class TextManager : MonoBehaviour
                     }
                 }
                 yield return WaitForMouse();
-                AudioManager.instance.PlayDialoguegEvent();
             }
             EndMessageQue();
         }

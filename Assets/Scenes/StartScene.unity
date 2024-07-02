@@ -980,11 +980,11 @@ MonoBehaviour:
     Path: event:/SwitchLights
   <ButtonEvent>k__BackingField:
     Guid:
-      Data1: -1377873777
-      Data2: 1225200858
-      Data3: 165880747
-      Data4: 316012564
-    Path: event:/MainMenuButton
+      Data1: -368109121
+      Data2: 1292562892
+      Data3: -1714980463
+      Data4: -1969915596
+    Path: event:/SwitchLights
   <BurstEvent>k__BackingField:
     Guid:
       Data1: 133066336
@@ -1253,7 +1253,6 @@ MonoBehaviour:
   buttonSource: {fileID: 1634214717}
   hoverSound: {fileID: 8300000, guid: 49976d7a5adf4d24191276353874f153, type: 3}
   clickSound: {fileID: 8300000, guid: 65d40e0eb1115694bb43cb8a5914d5ef, type: 3}
-  fadeBox: {fileID: 0}
 --- !u!82 &1634214717
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1468,7 +1467,6 @@ MonoBehaviour:
   buttonSource: {fileID: 0}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
-  fadeBox: {fileID: 887496177}
 --- !u!1 &2131352053
 GameObject:
   m_ObjectHideFlags: 0
