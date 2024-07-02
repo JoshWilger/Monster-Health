@@ -14,10 +14,8 @@ public class LightbulbCollection : ItemCollection
         if (Time.time - timeLightbulbCollected >= secondsOfLightEffect)
         {
             fullBrightLightObject.SetActive(false);
-        }
-        if (Time.time == 0)
-        {
-            AudioManager.instance.PlayLightsOffEvent();
+            AudioManager.instance.StopLightsOnEvent();
+            AudioManager.instance.PlayNoLightsEvent();
         }
     }
 
@@ -25,9 +23,11 @@ public class LightbulbCollection : ItemCollection
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Lightbulb"))
         {
-            AudioManager.instance.PlayLightsOnEvent();
+            AudioManager.instance.LightsOffSoundReset();
+            AudioManager.instance.StopLightsOnEvent();
             UpdateLight();
             UpdateCollection(other);
+            AudioManager.instance.PlayLightsOnEvent();
         }
     }
 

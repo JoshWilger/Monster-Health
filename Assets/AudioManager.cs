@@ -14,8 +14,12 @@ public class AudioManager : MonoBehaviour
     public bool endoflifeMusic;
     public bool minigameMusic;
     public bool teacherMusic;
+    private bool isLightsEventPlaying = false;
+    private bool lightsOffEventPlayed = false;
 
-    public string lightsOnEventPath; 
+    public string lightsOnEventPath;
+
+    public string LightsOffEventPath;
 
     private List<EventInstance> eventInstances;
 
@@ -78,9 +82,43 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void LightsOffSoundReset()
+    {
+        lightsOffEventPlayed = false;
+    }
+    public void PlayNoLightsEvent()
+    {
+        if (!lightsOffEventPlayed)
+        {
+            RuntimeManager.PlayOneShot(LightsOffEvent);
+            lightsOffEventPlayed = true;
+        }
+    }
+    public void PlayLightsOnEvent()
+    {
+        if (!isLightsEventPlaying)
+        {
+            lightsOnEventInstance = FMODUnity.RuntimeManager.CreateInstance(LightsOnEvent);
+            lightsOnEventInstance.start();
+            isLightsEventPlaying = true;
+        }
+    }
     public void StopLightsOnEvent()
     {
-        lightsOnEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        if (isLightsEventPlaying)
+        {
+          if(lightsOnEventInstance.isValid())
+            {
+                lightsOnEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                lightsOnEventInstance.release();
+            }
+            isLightsEventPlaying = false;
+        }
+    }
+    private void InitializelightsOnEvent(EventReference lightsOnEventReference)
+    {
+        lightsOnEventInstance = CreateInstance(lightsOnEventReference);
+        lightsOnEventInstance.start();
     }
     private void InitializeMainMenuMusic(EventReference mainMenuMusicEventReference)
     {
@@ -158,7 +196,7 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void PlayLightsOnEvent()
+    public void PlayLightsEvent()
     {
         
             RuntimeManager.PlayOneShot(LightsOnEvent);

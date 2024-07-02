@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638554560382749985
+  lastModified: 638554651211660168
   FileSizes: []
   Exists: 1
 --- !u!114 &-8685346667237976723
@@ -141,7 +141,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638554560382759962
+  lastModified: 638554651211680113
   FileSizes:
   - Name: 
     Value: 1720
@@ -249,11 +249,11 @@ MonoBehaviour:
   - {fileID: -9037801276136334617}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 3450
+  Length: 3400
 --- !u!114 &-2701714332965137081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   - {fileID: -9037801276136334617}
   StringsBanks:
   - {fileID: -5357593743223706078}
-  cacheTime: 638554560382759962
+  cacheTime: 638554651211680113
   cacheVersion: 131616
 --- !u!114 &541450665187314222
 MonoBehaviour:
